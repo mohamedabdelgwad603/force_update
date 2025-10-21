@@ -1,0 +1,30 @@
+name: force_update
+description: A customizable Flutter package to enforce critical app updates using Firebase Remote Config.
+version: 0.1.0
+homepage: https://github.com/your_username/force_update # يرجى استبدال هذا برابط المستودع الخاص بك
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Required for checking app version and build number
+  package_info_plus: ^8.0.0 
+
+  # Required for launching the App Store/Play Store URL
+  url_launcher: ^6.2.0
+
+  # Required for fetching the minimum version string from the server
+  firebase_remote_config: ^4.0.0 
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# The plugin setup section is necessary for Firebase to work correctly.
+flutter:
