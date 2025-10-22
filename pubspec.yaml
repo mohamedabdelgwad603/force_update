@@ -1,7 +1,7 @@
 name: force_update
 description: A customizable Flutter package to enforce critical app updates using Firebase Remote Config.
 version: 0.1.0
-homepage: https://github.com/your_username/force_update # يرجى استبدال هذا برابط المستودع الخاص بك
+homepage: https://github.com/mohamedabdelgwad603/force_update.git
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

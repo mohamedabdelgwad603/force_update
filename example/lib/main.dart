@@ -25,7 +25,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  checkForUpdate(BuildContext context) async {
+  checkForUpdate() async {
     bool requiredUpdate = await ForceUpdateManager.checkForUpdate(
       minimumVersionRemoteConfigKey:
           "minimum_version", // get from Firebase Remote Config
@@ -36,7 +36,6 @@ class _HomePageState extends State<HomePage> {
     if (requiredUpdate) {
       ForceUpdateManager.performForceUpdate(
         context,
-        barrierDismissible: true,
         androidStoreUrl:
             "https://play.google.com/store/apps/details?id=com.example.force_update",
         iosStoreUrl: "https://apps.apple.com/app/id0000000000",
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      checkForUpdate(context);
+      checkForUpdate();
     });
     super.initState();
   }

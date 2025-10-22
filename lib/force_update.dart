@@ -200,16 +200,11 @@ class ForceUpdateManager {
     String updateButtonText = 'Update Now',
     String laterButtonText = 'later', // display when barrierDismissible is true
   }) async {
-    // Ensure the code runs after the first frame is rendered,
-    // guaranteeing context validity for showDialog.
-    //  WidgetsBinding.instance.addPostFrameCallback((_) async {
-    // Check context validity before showing the UI
     // Determine the correct store URL
     final storeUrl = Platform.isIOS ? iosStoreUrl : androidStoreUrl;
 
     // Display the unified dialog
     _showForceExitDialog(context, barrierDismissible, dialogTitle,
         dialogMessage, updateButtonText, laterButtonText, storeUrl);
-    //});
   }
 }
