@@ -4,7 +4,8 @@
 A simple and effective Flutter package that enforces **mandatory updates** for your application on both **Android** and **iOS** by controlling the minimum required version exclusively via **Firebase Remote Config**.
 
 ---
-<img width="1080" height="2340" alt="Screenshot_1761050279" src="https://github.com/user-attachments/assets/0e56287c-f098-4be3-8c1f-363e9f031e06" />
+<img width="512" height="1080" alt="Simulator Screenshot - iPhone 16 Pro Max - 2025-10-22 at 10 40 58" src="https://github.com/user-attachments/assets/65edf2a1-6bcc-4da3-9276-d5945ddca8e7" />
+<img width="512" height="1080" alt="Screenshot_1761050279" src="https://github.com/user-attachments/assets/0e56287c-f098-4be3-8c1f-363e9f031e06" />
 
 
 ## Table of Contents
@@ -17,7 +18,6 @@ A simple and effective Flutter package that enforces **mandatory updates** for y
 - [Usage](#usage)
   - [Example (SplashScreen)](#example-splashscreen)
   - [Detailed Usage Breakdown](#detailed-usage-breakdown)
-- [API Reference](#api-reference)
 - [Behavior & Modes](#behavior--modes)
 - [Contributing](#contributing)
 - [License](#license)
@@ -108,7 +108,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Start the check process immediately
-    _checkAndUpdate();
+     @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      _checkAndUpdate();
+    });
+    super.initState();
+  }
   }
 
   void _checkAndUpdate() async {
@@ -209,28 +215,6 @@ ForceUpdateManager.performForceUpdate(
 
 ---
 
-## API Reference (Summary)
-
-### `ForceUpdateManager.checkForUpdate`
-
-- **Parameters**
-  - `minimumVersionRemoteConfigKey` (`String`, required)
-  - `minimumVersionOverride` (`String?`, optional`)
-- **Returns**: `Future<bool>` — `true` if update is required.
-
-### `ForceUpdateManager.performForceUpdate`
-
-- **Parameters**
-  - `context` (`BuildContext`, required)
-  - `androidStoreUrl` (`String`, required)
-  - `iosStoreUrl` (`String`, required)
-  - `barrierDismissible` (`bool?`)
-  - `dialogTitle` (`String`)
-  - `dialogMessage` (`String`)
-  - `updateButtonText` (`String`)
-  - `laterButtonText` (`String`)
-
----
 
 ## Contributing
 
